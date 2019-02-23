@@ -27,7 +27,7 @@ function getOpenIssues(){
 		last24Issues = getIssuesInPeriod(sinceDays[0]);
 		//last24_7days = total7daysIssues - IssuesIn24Hours ()
 		var issuesInLast7Days = getIssuesInPeriod(sinceDays[1]);
-		last24_7daysIssues = totalIssues - issuesInLast7Days;
+		last24_7daysIssues = issuesInLast7Days - last24Issues;
 		//moretha7daysissue
 		moreThan7DaysIssues = totalIssues - issuesInLast7Days;
 		issuesCountObj["totalIssues"] = totalIssues;
@@ -45,13 +45,14 @@ function getOpenIssues(){
 function getIssuesInPeriod(sinceDays){
 	var issueCount = 0;
 	var inputUrl = $("#url").val();
+	var url = "";
 	if (sinceDays == undefined){
-		var url = getFinalUrl(baseUrl,inputUrl,methods["issues"]);
+		url = getFinalUrl(baseUrl,inputUrl,methods["issues"]);
 	}
 	else{
 		var sinceDate = getBackDate(sinceDays)
 		var since = {"since":sinceDate};
-		var url = getFinalUrl(baseUrl,inputUrl,methods["issues"],since);
+		url = getFinalUrl(baseUrl,inputUrl,methods["issues"],since);
 	}
 	var data = httpGet(url)
 	issueCount = getSizeOfObject(data);

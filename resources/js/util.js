@@ -56,6 +56,7 @@ function getSizeOfObject(data){
 
 
 function httpGet(url){
+    var responseData = [];
     $.ajax({
         url: url,
         type: 'GET',
@@ -64,7 +65,6 @@ function httpGet(url){
         success: function(response) {
             if (response.length>0) {
 				responseData = response;
-                
             } else {
                 // show_error("No open issues found!!!!");
                 return;
@@ -75,7 +75,7 @@ function httpGet(url){
             return;
         },
         complete: function() {
-            console.log("");            
+            // console.log("");          
         }
     });
     return responseData;
