@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Git Web Client</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+
+  <!-- <script src="http://code.jquery.com/jquery-1.8.0.js"></script> -->
+  <!-- <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  
+
+  <!-- Internal -->
+  <link rel="stylesheet" href="resources/css/index.css">
+  <script src="resources/js/index.js"></script>
+  <script src="resources/js/util.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Git Web Client</a>
+    </div>
+  </div>
+</nav>
+
+ <div class="container">  
+  <div class="panel panel-default">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+      <div class="row col-md-12">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+                 <div class="col-md-12">
+                    <div class="form-group row">
+                        <label for="url" class="col-md-1 control-label">Url</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="url" placeholder="">
+                        </div>
+                        <div class="col-md-2 ">
+                            <button id="fetch" type="button" onclick="getOpenIssues()" class="btn btn-primary">Fetch</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="row col-md-12" id="content">
+        <div class="">
+          <h2>Open Issues</h2>
+          <table class="table table-bordered style='width:100%' ">
+            <thead>
+              <tr>
+                <th>Total Issues</th>
+                <th>Issues In Last 24 Hours</th>
+                <th>Issues between 24Hr and 7 Days</th>
+                <th>Issue More than 7 Days</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id ="totalIssues"></td>
+                <td id = "last24Issues"></td>
+                <td id = "last24_7daysIssues"></td>
+                <td id = "moreThan7DaysIssues"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    </div>
+    
+    <div class="panel-footer"></div>
+  </div>
+</div> 
+
+
+</body>
+</html>
